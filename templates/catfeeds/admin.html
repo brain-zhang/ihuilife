@@ -1,13 +1,87 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-	<head>
-		<title>admin</title>
-	</head>
-	<body>
-		<h1>
-			hello,world
-		</h1>
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>admin</title>
+        <link rel="stylesheet" href="/static/css/bootstrap/css/bootstrap.css">
+        <script type="text/javascript"src="http://code.jquery.com/jquery-1.7.2.js"></script>
+        <script type="text/javascript"src="/static/css/bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript"src="/static/js/catfeeds/admin.js"></script>
+        <script type="text/javascript"src="/static/js/csrf.js"></script>
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="#">抓取商品列表 </a>
+                    
+                    <form class="navbar-form pull-left" action="./" method="get">
+                        <input type="text" class="span2" name="search_key_word" value="{{ search_key_word }}">
+                        <button type="submit" class="btn">
+                            搜索
+                        </button>
+                    </form>
+                    
+                    <div class="pagination pull-right">
+                        <ul>
+                            {% ifequal pre_page 0 %}
+                            {% else %}
+                            <li>
+                                <a href="?page={{ pre_page }}&search_key_word={{ search_key_word }}">前一页</a>
+                            </li>
+                            {% endifequal %}
+                            <li class="active">
+                                <a href="?page={{ current_page }}&search_key_word={{ search_key_word }}">{{ current_page }}</a>
+                            </li>
+                            {% ifequal n_page 0 %}
+                            {% else %}
+                            <li>
+                                <a href="?page={{ n_page }}&search_key_word={{ search_key_word }}">{{ n_page }}</a>
+                            </li>
+                            {% endifequal %}
+
+                            {% ifequal nn_page 0 %}
+                            {% else %}
+                            <li>
+                                <a href="?page={{ nn_page }}&search_key_word={{ search_key_word }}">{{ nn_page }}</a>
+                            </li>
+                            {% endifequal %}
+
+                            {% ifequal nnn_page 0 %}
+                            {% else %}
+                            <li>
+                                <a href="?page={{ nnn_page }}&search_key_word={{ search_key_word }}">{{ nnn_page }}</a>
+                            </li>
+                            {% endifequal %}
+
+                            {% ifequal n_page 0 %}
+                            {% else %}
+                            <li>
+                                <a href="?page={{ n_page }}&search_key_word={{ search_key_word }}">后一页</a>
+                            </li>
+                            {% endifequal %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <ul class="thumbnails">
+                {% for item in itemlist %}
+                <li class="span3">
+                    <div class="thumbnail" data-content="hello">
+                        <a href="{{ item.click_url }}" target="_blank" class="thumbnail"> <img src="{{ item.pic_url }}"> </a>
+                        <h5>商品id:{{ item.num_iid }}</h5>
+                        <h5>商品名称:</h5>{{ item.title|safe }}
+                        </h5>价格:{{ item.price }}</h5>
+                        </h5>佣金:{{ item.commission }}</h5> <h5>佣金比例:{{ item.commission_rate }}</h5>
+                        <h5>商家地址:{{ item.item_location }}</h5>
+                        <button class="btn" num_iid={{ item.num_iid }} data-toggle="button" autocomplete="off" data-loading-text="已存入数据库" align="center">
+                            选入数据库
+                        </button>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
 </html>
