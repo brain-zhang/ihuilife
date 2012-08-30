@@ -1,0 +1,26 @@
+{% include 'includes/head.html' %}
+<body>
+    {% include 'includes/nav.html' %}
+    <div class="container">
+        <div class="row box" id="taobaoshopping">
+            <form class="well">
+                <label>入库普通淘宝商品</label>
+                <input type="text" class="span4" name="num_iid" placeholder="请输入商品num_iid">
+                <button type="submit" class="btn taobao_shopping_btn">
+                    提交
+                </button>
+            </form>
+        </div>
+        <div class="row box" id="taobaokeshopping">
+            <form class="well">
+                <form class="well">
+                    <label>入库淘宝客商品</label>
+                    <input type="text" class="span4" placeholder="请输入商品num_iid">
+                    <button type="submit" class="btn taobaoke_shopping_btn">
+                        提交
+                    </button>
+                </form>
+        </div>
+    </div>
+</body>
+{% include 'includes/foot.html' %} 

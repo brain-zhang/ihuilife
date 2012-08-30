@@ -1,0 +1,81 @@
+body {
+    background: none repeat scroll 0 0 rgb(245, 243, 239);
+    font: 12px/22px Tahoma, Geneva, sans-serif, "Microsoft Yahei";
+}
+a:link, a:active, a:focus {
+    outline: medium none;
+    text-decoration: none;
+}
+.sep20 {
+    height: 20px;
+}
+.hottagslabel {
+    font-size: 12px;
+    line-height: 150%;
+    padding: 10px;
+    text-align: left;
+}
+.item_node {
+    border: 1px solid #E5E5E5;
+    border-radius: 4px 4px 4px 4px;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 12px;
+    margin: 0 5px 5px 0;
+    padding: 4px 10px;
+}
+.cell {
+    border-bottom: 1px solid #E2E2E2;
+    font-size: 12px;
+    line-height: 120%;
+    padding: 10px;
+    text-align: left;
+}
+.inner {
+    font-size: 12px;
+    line-height: 150%;
+    padding: 10px;
+    text-align: left;
+}
+.ownfade {
+    color: #CCCCCC;
+}
+.box {
+    background-color: #FFFFFF;
+    border-bottom: 2px solid #E2E2E9;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+.topic-item {
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(34, 25, 25, 0.2);
+    float: left;
+    height: auto;
+    margin: 0 13px 13px 0;
+    overflow: hidden;
+    padding: 10px 10px 13px;
+    width: 190px;
+    position: relative;
+    z-index: 1;
+}
+.topic-item .cat_pic {
+    display: block;
+    height: 160px;
+    overflow: hidden;
+    width: 190px;
+}
+.h-works-info {
+    background: url("../images/white-bg.png") repeat scroll 0 0 transparent;
+    bottom: 0;
+    left: 10px;
+    padding: 10px;
+    position: absolute;
+    width: 170px;
+    z-index: 3;
+}
+.h-works-info p {
+    height: 0px;
+    display: block;
+    overflow: hidden;
+    zoom: 1
+}

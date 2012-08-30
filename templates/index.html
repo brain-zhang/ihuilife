@@ -1,0 +1,75 @@
+{% include 'includes/head.html' %}
+<body>
+    {% include 'includes/nav.html' %}
+    <div class="container">
+        <div class="row box">
+            <div class="span8">
+                <div class = "sep20"></div>
+                <!--Sidebar content-->
+                <div id="rated" class="box">
+                    <!--这里实现一个轮播，实现一个推荐物品，推荐物品由后台指定-->
+                    <div id="HotCatsCarouse" class="carousel">
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+                            <div class="active item">
+                                <img alt="轮播" src="http://img02.taobaocdn.com/imgextra/i2/173276866/T2n60AXk0MXXXXXXXX_!!173276866.gif">
+                                <h4>介绍</h4>
+                                <p>
+                                    这里实现一个轮播，实现一个推荐物品，推荐物品由后台指定
+                                </p>
+                            </div>
+                            <div class="item">
+                                hello
+                            </div>
+                            <div class="item">
+                                world
+                            </div>
+                        </div>
+                        <!-- Carousel nav -->
+                        <a class="carousel-control left" href="#HotCatsCarouse" data-slide="prev">&lsaquo;</a>
+                        <a class="carousel-control right" href="#HotCatsCarouse" data-slide="next">&rsaquo;</a>
+                    </div>
+                </div>
+                <div class ="sep20"></div>
+            </div>
+            <div class="span4">
+                <!--Body content-->
+                <div class ="sep20"></div>
+                <div id="hottags" class="box hottagslabel">
+                    <div class="cell">
+                        <span class="ownfade">热点tag</span>
+                    </div>
+                    <div class="inner">
+                        {% for item in hottags %} <a class="label label-info item_node" href="tags/{{ item }}">{{ item }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class ="sep20"></div>
+        <div class="row box">
+            <div class ="sep20"></div>
+            <div class="span12">
+                <div class="cell">
+                    <span class="ownfade">最近流行(物品)</span>
+                </div>
+                <div class ="sep20"></div>
+                <ul class="thumbnails">
+                    {% for item in hotcats %}
+                    <li class="span3">
+                        <div class="topic-item">
+                            <div class="h-works-info">
+                                <span>{{ item.title }}</span>
+                                <p class="hiddenp">
+                                    <a href="">{{ item.title|safe|slice:"30" }}</a>
+                                </p>
+                            </div>
+                            <img src="{{ item.img_url }}" class="cat_pic" alt="hello">
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+</body>
+{% include 'includes/foot.html' %} 
